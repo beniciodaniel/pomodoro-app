@@ -23,7 +23,7 @@ export function Countdown() {
     return String(time).padStart(2, '0').split('');
   }
 
-  function validInputField(event) {
+  function validInputFieldAndSetCustomTime(event) {
     const value = event.target.value;
 
     if (isFinite(value)) {
@@ -84,7 +84,7 @@ export function Countdown() {
         className={styles.countdownInput}
         type="text"
         placeholder="Digite o tempo"
-        onChange={validInputField}
+        onChange={validInputFieldAndSetCustomTime}
         value={customTime}
       />
 
