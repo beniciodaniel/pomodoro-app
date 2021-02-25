@@ -21,7 +21,7 @@
 }
 
 .challengeNotActive strong {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 500;
   line-height: 1.4;
 }
@@ -33,6 +33,7 @@
   line-height: 1.4;
   max-width: 70%;
   margin-top: 3rem;
+  font-size: 1.2rem;
 }
 
 .challengeNotActive p img {
@@ -48,8 +49,8 @@
 
 .challengeActive header {
   color: var(--blue);
-  font-weight: 600;
-  font-size: 1.25rem;
+  font-weight: 400;
+  font-size: 1rem;
   padding: 0 2rem 1.5rem;
   border-bottom: 1px solid var(--gray-line);
 }

@@ -1,0 +1,35 @@
+.inputBlock {
+  position: relative;
+}
+
+.inputBlock + .inputBlock {
+  margin-top: 1.2rem;
+}
+
+.inputBlock label {
+  font-size: 1.2rem;
+}
+
+.inputBlock input {
+  width: 100%;
+  height: 3.2rem;
+  margin-top: 0.5rem;
+  border-radius: 5px;
+  /* background: var(--color-inputBackground); */
+  /* border: 1px solid var(--color-line-in-white); */
+  border: 1px solid var(--white);
+  outline: 0;
+  padding: 0 1.6rem;
+  font: 1rem;
+}
+
+.inputBlock:focus-within::after {
+  width: calc(100% - 3.2rem);
+  height: 3px;
+  content: '';
+  background: var(--green-button);
+  position: absolute;
+  left: 1.6rem;
+  right: 1.6rem;
+  bottom: 0;
+}

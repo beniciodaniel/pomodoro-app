@@ -5,7 +5,7 @@
 
   margin: 3.5rem 0;
   padding-bottom: 1rem;
-  border-bottom: 1px solid #d7d8da;
+  border-bottom: 1px solid var(--green);
 
   font-weight: 500;
 }
@@ -15,5 +15,6 @@
 }
 
 .completedChallengesContainer span:last-child {
-  font-size: 1.5rem;
+  font-size: 2rem;
+  color: var(--green);
 }

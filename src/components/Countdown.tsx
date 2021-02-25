@@ -1,20 +1,18 @@
 import { useEffect, useState } from 'react';
-import { useChallengesContext } from '../contexts/ChallengesContext';
+import { useCountdownContext } from '../contexts/CountdownContext';
 import styles from '../styles/components/Countdown.module.css';
 
-let countdownTimeout: NodeJS.Timeout;
-
 export function Countdown() {
-  const { startNewChallenge } = useChallengesContext();
-
-  const [customTime, setCustomTime] = useState(0);
-  const [hasFinished, setHasFinished] = useState(false);
-
-  const [time, setTime] = useState(0);
-  const [isActive, setIsActive] = useState(false);
-
-  const minutes = Math.floor(time / 60);
-  const seconds = time % 60;
+  const {
+    hasFinished,
+    isActive,
+    minutes,
+    seconds,
+    customTime,
+    resetCountdown,
+    setCustomTime,
+    setCustomCountdownTime
+  } = useCountdownContext();
 
   const [minuteLeft, minuteRight] = transformTimeIntoArrayOfString(minutes);
   const [secondLeft, secondRight] = transformTimeIntoArrayOfString(seconds);
@@ -26,45 +24,12 @@ export function Countdown() {
   function validInputFieldAndSetCustomTime(event) {
     const value = event.target.value;
 
+    console.log(typeof value, 'value');
+
     if (isFinite(value)) {
       setCustomTime(value);
     }
   }
-
-  function setCustomCountdownTime() {
-    const defaultTime = 30;
-
-    setTime(() => customTime * 60);
-
-    if (!customTime) {
-      setCustomTime(() => defaultTime);
-      setTime(() => defaultTime * 60);
-    }
-
-    startCountdown();
-  }
-
-  function startCountdown() {
-    setIsActive(true);
-  }
-
-  function resetCountdown() {
-    clearTimeout(countdownTimeout);
-    setIsActive(false);
-    setTime(() => customTime * 60);
-  }
-
-  useEffect(() => {
-    if (isActive && time > 0) {
-      countdownTimeout = setTimeout(() => {
-        setTime(time - 1);
-      }, 1000);
-    } else if (isActive && time === 0) {
-      setHasFinished(true);
-      setIsActive(false);
-      startNewChallenge();
-    }
-  }, [isActive, time]);
 
   return (
     <div>
@@ -83,9 +48,9 @@ export function Countdown() {
       <input
         className={styles.countdownInput}
         type="text"
-        placeholder="Digite o tempo"
+        placeholder="Clique em iniciar ou digite a duração... "
         onChange={validInputFieldAndSetCustomTime}
-        value={customTime}
+        value={customTime ? customTime : ''}
       />
 
       {hasFinished ? (

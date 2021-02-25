@@ -6,16 +6,17 @@
 
 :root {
   --white: #fff;
-  --background: #f2f3f5;
+  --background: #f2e2ce;
   --gray-line: #dcdde0;
-  --text: #666;
+  --text: #010d00;
   --text-highlight: #b3b9ff;
   --title: #2e384d;
   --red: #e83f5b;
-  --green: #4cd62b;
+  --green: #0fa67b;
   --blue: #5965e0;
   --blue-dark: #4953b8;
   --blue-twitter: #2aa9e0;
+  --green-button: #0fa67b;
 }
 
 @media (max-width: 1080px) {
@@ -40,7 +41,8 @@ body,
 input,
 textarea,
 button {
-  font: 400 1rem 'Inter', sans-serif;
+  /* font: 400 1rem 'Inter', sans-serif; */
+  font: 400 0.8rem 'Press Start 2P', cursive;
 }
 
 button {

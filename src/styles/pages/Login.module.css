@@ -1,0 +1,62 @@
+.loginContainer {
+  height: 100vh;
+  max-width: 992px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+
+  display: flex;
+}
+
+.loginContainer .imageSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.loginContainer .imageSection img {
+  width: 400px;
+  justify-self: center;
+}
+
+.loginContainer .formSection {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.loginContainer .formSection h2 {
+  color: var(--red);
+  font-size: 2.2rem;
+}
+
+.loginContainer .formSection form {
+  width: 350px;
+  margin-top: 2rem;
+}
+
+.loginContainer .formSection form button {
+  width: 100%;
+  background: var(--green-button);
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+  border-radius: 5px;
+
+  color: var(--white);
+
+  font-size: 1rem;
+  font-weight: 600;
+
+  margin-top: 2rem;
+}
+
+.linkContainer {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
