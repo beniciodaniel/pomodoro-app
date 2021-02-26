@@ -24,8 +24,6 @@ export function Countdown() {
   function validInputFieldAndSetCustomTime(event) {
     const value = event.target.value;
 
-    console.log(typeof value, 'value');
-
     if (isFinite(value)) {
       setCustomTime(value);
     }
@@ -48,7 +46,7 @@ export function Countdown() {
       <input
         className={styles.countdownInput}
         type="text"
-        placeholder="Clique em iniciar ou digite a duração... "
+        placeholder="Ex: 5"
         onChange={validInputFieldAndSetCustomTime}
         value={customTime ? customTime : ''}
       />

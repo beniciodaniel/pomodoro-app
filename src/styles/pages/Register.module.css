@@ -38,6 +38,10 @@
   font-size: 1rem;
 }
 
+.registerContainer .formSection form input::placeholder {
+  font-size: 0.7rem;
+}
+
 .registerContainer .formSection form button {
   width: 100%;
   background: var(--green-button);
@@ -55,6 +59,11 @@
   font-weight: 600;
 
   margin-top: 2rem;
+  transition: background-color 0.2s;
+}
+
+.registerContainer .formSection form button:hover {
+  background: var(--blue-dark);
 }
 
 .linkContainer {
@@ -62,4 +71,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.linkContainer a {
+  transition: transform 0.3s;
+}
+
+.linkContainer a:hover {
+  color: var(--red);
+  transform: scale(1.1);
 }

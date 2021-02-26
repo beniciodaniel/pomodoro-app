@@ -17,6 +17,10 @@ export default withAuth(function Ranking() {
       <section>
         <h3>Ranking</h3>
 
+        <span className={styles.spanImage}>
+          <img src="/crown.png" alt="Crown" />
+        </span>
+
         <div>
           {users &&
             users.map((user) => (

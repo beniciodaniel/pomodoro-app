@@ -61,7 +61,7 @@ function AuthProvider({ children }: AuthProviderProps) {
 
       router.push('/');
     } catch (error) {
-      console.log(error);
+      console.log(error, 'LOL RS');
     }
   }
 
@@ -77,7 +77,7 @@ function AuthProvider({ children }: AuthProviderProps) {
       setAuthenticated(true);
       router.push('/pomodoro');
     } catch (error) {
-      console.log(error);
+      console.log(error, 'LOL');
     }
   }
 

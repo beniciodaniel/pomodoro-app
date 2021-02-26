@@ -8,15 +8,26 @@
   flex-direction: column;
 }
 
+.rankingContainer section span.spanImage {
+  position: relative;
+  height: 4rem;
+  display: block;
+}
+
+.rankingContainer section span.spanImage img {
+  position: absolute;
+  z-index: 99;
+  top: 25px;
+  left: -10px;
+}
+
+.rankingContainer section h3 {
+  font-size: 2rem;
+}
+
 .rankingContainer section div {
   max-width: 100%;
   margin-top: 3rem;
-
-  div.listItemDiv:first-child {
-    div span p {
-      color: goldenrod;
-    }
-  }
 
   div.listItemDiv {
     background: #fff;
@@ -76,6 +87,12 @@
     svg {
       margin-left: auto;
       color: #cbcbd6;
+    }
+  }
+
+  div.listItemDiv:first-child {
+    div span p {
+      color: goldenrod;
     }
   }
 }
