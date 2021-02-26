@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuthContext } from '../contexts/AuthContext';
 import Link from 'next/link';
 import Input from '../components/Input';
@@ -11,12 +11,24 @@ export default function Register() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [photoUrl, setPhotoUrl] = useState('');
 
   const [isNameErrored, setIsNameErrored] = useState(false);
   const [isEmailErrored, setIsEmailErrored] = useState(false);
   const [isPasswordErrored, setIsPasswordErrored] = useState(false);
+  const [isConfirmPasswordErrored, setIsConfirmPasswordErrored] = useState(
+    false
+  );
   const [isPhotoUrlErrored, setIsPhotoUrlErrored] = useState(false);
+
+  useEffect(() => {
+    if (password && confirmPassword !== password) {
+      setIsConfirmPasswordErrored(true);
+      return;
+    }
+    setIsConfirmPasswordErrored(false);
+  }, [confirmPassword, password]);
 
   function handleOnChange(e) {
     const inputId = e.target.id;
@@ -34,18 +46,16 @@ export default function Register() {
     } else if (inputId === 'photo_url') {
       setPhotoUrl(value);
       setIsPhotoUrlErrored(false);
+    } else if (inputId === 'confirmPassword') {
+      setConfirmPassword(value);
+      setIsConfirmPasswordErrored(false);
     }
   }
 
   async function handleOnSubmit(e) {
     e.preventDefault();
 
-    setIsNameErrored(false);
-    setIsEmailErrored(false);
-    setIsPasswordErrored(false);
-    setIsPhotoUrlErrored(false);
-
-    if (!name || !email || !password) {
+    if (!name || !email || !password || !confirmPassword) {
       if (!name) {
         setIsNameErrored(true);
       }
@@ -56,6 +66,10 @@ export default function Register() {
 
       if (!password) {
         setIsPasswordErrored(true);
+      }
+
+      if (!confirmPassword) {
+        setIsConfirmPasswordErrored(true);
       }
 
       return;
@@ -90,6 +104,7 @@ export default function Register() {
             placeholder="Ex: jose@aol.com"
             isErrored={isEmailErrored}
           />
+
           <Input
             name="password"
             type="password"
@@ -99,6 +114,22 @@ export default function Register() {
             placeholder="Crie uma senha para você"
             isErrored={isPasswordErrored}
           />
+
+          <Input
+            name="confirmPassword"
+            type="password"
+            label="Confirmar Senha"
+            value={confirmPassword}
+            onChange={handleOnChange}
+            placeholder="Redigite a senha"
+            isErrored={isConfirmPasswordErrored}
+          />
+          {isConfirmPasswordErrored && confirmPassword && (
+            <span className={styles.confirmPasswordNotification}>
+              As senhas não estão iguais
+            </span>
+          )}
+
           <Input
             name="photo_url"
             type="text"

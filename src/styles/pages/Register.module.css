@@ -38,6 +38,18 @@
   font-size: 1rem;
 }
 
+span.confirmPasswordNotification {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0.7rem;
+  color: var(--red);
+
+  position: relative;
+  top: -17px;
+}
+
 .registerContainer .formSection form input::placeholder {
   font-size: 0.7rem;
 }

@@ -28,11 +28,11 @@ export default function Login() {
 
   async function handleOnSubmit(e) {
     e.preventDefault();
-    setIsEmailErrored(false);
-    setIsPasswordErrored(false);
 
-    if (!email) {
-      setIsEmailErrored(true);
+    if (!email || !password) {
+      if (!email) {
+        setIsEmailErrored(true);
+      }
 
       if (!password) {
         setIsPasswordErrored(true);
