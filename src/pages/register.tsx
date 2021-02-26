@@ -45,8 +45,10 @@ export default function Register() {
     setIsPasswordErrored(false);
     setIsPhotoUrlErrored(false);
 
-    if (!name) {
-      setIsNameErrored(true);
+    if (!name || !email || !password) {
+      if (!name) {
+        setIsNameErrored(true);
+      }
 
       if (!email) {
         setIsEmailErrored(true);
@@ -54,10 +56,6 @@ export default function Register() {
 
       if (!password) {
         setIsPasswordErrored(true);
-      }
-
-      if (!photoUrl) {
-        setIsPhotoUrlErrored(true);
       }
 
       return;

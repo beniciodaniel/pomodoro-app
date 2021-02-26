@@ -13,7 +13,7 @@ import withAuth from '../components/WithAuth';
 import styles from '../styles/pages/Home.module.css';
 import { ChallengesProvider } from '../contexts/ChallengesContext';
 
-export default function Home() {
+export default withAuth(function Home() {
   return (
     <div className={styles.container}>
       <Head>
@@ -40,4 +40,4 @@ export default function Home() {
       </ChallengesProvider>
     </div>
   );
-}
+});
