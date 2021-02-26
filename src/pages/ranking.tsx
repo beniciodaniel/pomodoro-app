@@ -11,6 +11,9 @@ export default withAuth(function Ranking() {
     api.get('/users').then((response) => setUsers(response.data));
   }, []);
 
+  const fallbackSource =
+    'https://i.pinimg.com/474x/6c/e5/6f/6ce56f3ac0383536ce7734894d17e69e.jpg';
+
   return (
     <div className={styles.rankingContainer}>
       <Navbar />
@@ -25,7 +28,15 @@ export default withAuth(function Ranking() {
           {users &&
             users.map((user) => (
               <div key={user.id} className={styles.listItemDiv}>
-                <img src={user.photo_url} alt={user.name} />
+                <img
+                  src={
+                    user.photo_url.includes('.jpg') ||
+                    user.photo_url.includes('.png')
+                      ? user.photo_url
+                      : fallbackSource
+                  }
+                  alt={user.name}
+                />
 
                 <div>
                   <span>
