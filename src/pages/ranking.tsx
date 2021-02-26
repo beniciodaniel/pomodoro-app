@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar';
 import withAuth from '../components/WithAuth';
 import styles from '../styles/pages/Ranking.module.scss';
 
-export default withAuth(function Ranking({ users }) {
+export default function Ranking({ users }) {
   function getFirstname(name: string) {
     return name.split(' ')[0];
   }
@@ -62,7 +62,7 @@ export default withAuth(function Ranking({ users }) {
       </section>
     </div>
   );
-});
+}
 
 export const getServerSideProps = async () => {
   const response = await api.get('/users');

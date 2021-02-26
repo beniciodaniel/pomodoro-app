@@ -62,7 +62,7 @@
   justify-content: center;
 
   border: 0;
-  border-radius: 5px;
+  border-radius: 2rem;
 
   background: var(--green-button);
   color: var(--white);

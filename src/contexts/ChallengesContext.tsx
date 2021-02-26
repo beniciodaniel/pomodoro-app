@@ -8,6 +8,7 @@ import {
 } from 'react';
 import challenges from '../../challenges.json';
 import api from '../api';
+import { LevelUpModal } from '../components/LevelUpModal';
 
 interface Challenge {
   type: 'body' | 'eye';
@@ -24,6 +25,7 @@ interface ChallengesContextData {
   startNewChallenge: () => void;
   resetChallenge: () => void;
   completeChallenge: () => void;
+  closeLevelUpModal: () => void;
 }
 
 interface ChallengesProviderProps {
@@ -39,6 +41,7 @@ function ChallengesProvider({ children }: ChallengesProviderProps) {
   const [currentExperience, setCurrentExperience] = useState(0);
   const [challengesCompleted, setChallengesCompleted] = useState(0);
   const [activeChallenge, setActiveChallenge] = useState(null);
+  const [isLeveUpModalOpen, setIsLeveUpModalOpen] = useState(false);
 
   const experienceToNextLevel = Math.pow((level + 1) * 4, 2);
 
@@ -54,6 +57,11 @@ function ChallengesProvider({ children }: ChallengesProviderProps) {
 
   function levelUp() {
     setLevel(level + 1);
+    setIsLeveUpModalOpen(true);
+  }
+
+  function closeLevelUpModal() {
+    setIsLeveUpModalOpen(false);
   }
 
   function startNewChallenge() {
@@ -112,10 +120,12 @@ function ChallengesProvider({ children }: ChallengesProviderProps) {
         levelUp,
         startNewChallenge,
         resetChallenge,
-        completeChallenge
+        completeChallenge,
+        closeLevelUpModal
       }}
     >
       {children}
+      {isLeveUpModalOpen && <LevelUpModal />}
     </ChallengesContext.Provider>
   );
 }

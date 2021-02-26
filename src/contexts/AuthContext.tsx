@@ -52,7 +52,7 @@ function AuthProvider({ children }: AuthProviderProps) {
     photo_url
   }: CreateRequestDTO) {
     try {
-      const { data } = await api.post('/users', {
+      await api.post('/users', {
         email,
         password,
         name,
@@ -61,7 +61,7 @@ function AuthProvider({ children }: AuthProviderProps) {
 
       router.push('/');
     } catch (error) {
-      console.log(error, 'LOL RS');
+      alert('Erro ao fazer cadastro! Tente novamente :)');
     }
   }
 
@@ -77,7 +77,7 @@ function AuthProvider({ children }: AuthProviderProps) {
       setAuthenticated(true);
       router.push('/pomodoro');
     } catch (error) {
-      console.log(error, 'LOL');
+      alert('Erro ao fazer login! Tente novamente :)');
     }
   }
 

@@ -25,11 +25,15 @@
 
 .inputBlock:focus-within::after {
   width: calc(100% - 3.2rem);
-  height: 3px;
+  height: 4px;
   content: '';
   background: var(--green-button);
   position: absolute;
   left: 1.6rem;
   right: 1.6rem;
   bottom: 0;
+}
+
+.errored {
+  border-bottom: 4px solid var(--red);
 }
