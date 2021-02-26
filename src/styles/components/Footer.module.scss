@@ -1,0 +1,15 @@
+footer.footer {
+  height: 5vh;
+  font-size: 0.8rem;
+  bottom: -200px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--text);
+
+  div {
+    text-align: center;
+  }
+}

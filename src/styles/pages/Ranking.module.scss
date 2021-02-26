@@ -30,6 +30,7 @@
   margin-top: 3rem;
 
   div.listItemDiv {
+    overflow: auto;
     background: #fff;
     border-radius: 5px;
     padding: 24px;
@@ -93,6 +94,25 @@
   div.listItemDiv:first-child {
     div span p {
       color: goldenrod;
+    }
+  }
+
+  @media (max-width: 600px) {
+    div.listItemDiv div {
+      display: block;
+
+      span {
+        & + span {
+          margin-top: 1rem;
+        }
+
+        strong {
+          font-size: 0.9rem;
+        }
+        p {
+          font-size: 0.9rem;
+        }
+      }
     }
   }
 }

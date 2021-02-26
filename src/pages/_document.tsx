@@ -11,7 +11,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <meta charSet="utf-8" />
-          <title>Pomodorin | Exercite-se</title>
+
           <link rel="shortcut icon" href="favicon.png" type="image/png" />
           {/* <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
