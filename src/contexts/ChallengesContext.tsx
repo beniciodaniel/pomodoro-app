@@ -1,3 +1,4 @@
+import { useAuthContext } from './AuthContext';
 import {
   createContext,
   ReactNode,
@@ -7,7 +8,6 @@ import {
 } from 'react';
 import challenges from '../../challenges.json';
 import api from '../api';
-import { useAuthContext } from './AuthContext';
 
 interface Challenge {
   type: 'body' | 'eye';

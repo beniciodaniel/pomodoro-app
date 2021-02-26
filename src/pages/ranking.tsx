@@ -1,15 +1,12 @@
-import { useEffect, useState } from 'react';
 import api from '../api';
 import Navbar from '../components/Navbar';
 import withAuth from '../components/WithAuth';
 import styles from '../styles/pages/Ranking.module.scss';
 
-export default withAuth(function Ranking() {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    api.get('/users').then((response) => setUsers(response.data));
-  }, []);
+export default withAuth(function Ranking({ users }) {
+  function getFirstname(name: string) {
+    return name.split(' ')[0];
+  }
 
   const fallbackSource =
     'https://i.pinimg.com/474x/6c/e5/6f/6ce56f3ac0383536ce7734894d17e69e.jpg';
@@ -41,7 +38,7 @@ export default withAuth(function Ranking() {
                 <div>
                   <span>
                     <strong>Nome</strong>
-                    <p>{user.name}</p>
+                    <p>{getFirstname(user.name)}</p>
                   </span>
 
                   <span>
@@ -66,3 +63,13 @@ export default withAuth(function Ranking() {
     </div>
   );
 });
+
+export const getServerSideProps = async () => {
+  const response = await api.get('/users');
+
+  return {
+    props: {
+      users: response.data
+    }
+  };
+};

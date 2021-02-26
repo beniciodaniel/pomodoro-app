@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import { useCountdownContext } from '../contexts/CountdownContext';
 import styles from '../styles/components/Countdown.module.css';
 
