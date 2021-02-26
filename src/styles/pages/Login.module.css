@@ -79,3 +79,23 @@
   color: var(--red);
   transform: scale(1.1);
 }
+
+@media (max-width: 600px) {
+  .loginContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .loginContainer .imageSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0.5;
+  }
+
+  .loginContainer .imageSection img {
+    width: 250px;
+    justify-self: center;
+  }
+}

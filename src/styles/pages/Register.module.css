@@ -81,3 +81,23 @@
   color: var(--red);
   transform: scale(1.1);
 }
+
+@media (max-width: 600px) {
+  .registerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .registerContainer .imageSection {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0.5;
+  }
+
+  .registerContainer .imageSection img {
+    width: 250px;
+    justify-self: center;
+  }
+}
