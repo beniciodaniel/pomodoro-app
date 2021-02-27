@@ -92,3 +92,9 @@
   background: var(--white);
   color: var(--text);
 }
+
+@media (max-width: 400px) {
+  .countdownContainer > div span {
+    font-size: 3rem;
+  }
+}

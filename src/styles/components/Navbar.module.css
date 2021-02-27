@@ -1,5 +1,5 @@
 .navbar {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -61,5 +61,16 @@
   .navbar {
     display: flex;
     justify-content: space-between;
+  }
+}
+
+@media (max-width: 400px) {
+  .navbar div button {
+    width: 80px;
+    font-size: 0.7rem;
+  }
+
+  .navbar div:first-child img {
+    display: none;
   }
 }

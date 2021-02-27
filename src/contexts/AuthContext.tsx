@@ -72,7 +72,7 @@ function AuthProvider({ children }: AuthProviderProps) {
         password
       });
 
-      setUser(data);
+      setUser(() => data);
       setLoading(false);
       setAuthenticated(true);
       router.push('/pomodoro');
@@ -84,6 +84,7 @@ function AuthProvider({ children }: AuthProviderProps) {
   function logOut() {
     setUser({} as User);
     setAuthenticated(false);
+    router.push('/');
   }
 
   return (
